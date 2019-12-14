@@ -1,5 +1,7 @@
 body {
     font-family: 'Kanit', sans-serif;
+    margin: 0%;
+    padding: 0%;
 }
 
 .name {
@@ -24,8 +26,8 @@ body {
 .pd-t-70px {
     padding-top: 70px;
 }
-.pd-b-70px {
-    padding-bottom: 70px;
+.mg-b-30px {
+    margin-bottom: 30px;
 }
 
 
@@ -35,8 +37,18 @@ body {
 
 .menu {
     float: left;
-    width: 50%;
+    width: 40%;
     /* text-align: center; */
+    padding-left: 30px;
+    /* background-color: #e5e5e5; */
+}
+
+.center {
+    float: left;
+    width: 30%;
+    /* text-align: center; */
+    padding-left: 30px;
+    /* background-color: #e5e5e5; */
 }
 
 .menu a {
@@ -55,9 +67,9 @@ body {
 }
 
 .right {
-    background-color: #e5e5e5;
+    /* background-color: #e5e5e5; */
     float: left;
-    width: 50%;
+    width: 30%;
     /* padding: 15px; */
     /* margin-top: 7px; */
     /* text-align: center; */

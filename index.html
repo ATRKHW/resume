@@ -13,26 +13,14 @@
 <body>
     <div class="name text-center pd-t-70px">
         <img class="profile-img" src="image\profile_picture.jpg" alt="">
-        <h1>Atirut Khamwang</h1>
-        <h1 class="pd-b-70px">( Tua )</h1>
+        <h1 id="name">Atirut Khamwang</h1>
+        <div id="input-name"></div>
+        <h1>( Tua )</h1>
+        <button class="mg-b-30px" id="edit-name">Edit</button>
     </div>
-    <div style="overflow:auto">
+    <div style="overflow:auto; background-color: #e5e5e5;">
         <div class="menu">
-            <h2>ประวัติการทำงาน</h2>
-            <ul>
-                <li>ครูพิเศษสอน - วิทยาลัยเทคนิคบุรีรัมย์</li>
-                <li>IT Support - บริษัท แกรนด์ เอฟเวอเรส จำกัด</li>
-            </ul>
-            <h2>ประวัติการศึกษา</h2>
-            <ul>
-                <li>วิทยาศาสตรบัณฑิต (วิทยาการคอมพิวเตอร์) - มหาวิทยาลัยกรุงเทพ</li>
-                <li>มัธยมศึกษาตอนปลาย - โรงเรียนบุรีรัมย์พิทยาคม</li>
-                <li>มัธยมศึกษาตอนต้น - โรงเรียนบุรีรัมย์พิทยาคม</li>
-                <li>ประถามศึกษา - โรงเรียนอนุบาลบุรีรัมย์</li>
-            </ul>
-        </div>
-        <div class="right">
-            <h2>ประวัติส่วนตัว</h2>
+            <h2 style="text-align: center;">ประวัติส่วนตัว</h2>
             <p>เกิดวันที่ 5 เมษายน พ.ศ. 2532</p>
             <p>อายุ 30 ปี กรุ๊ปเลือด B</p>
             <p>เชื้อชาติ ไทย สัญชาติ ไทย ศาสนา พุทธ</p>
@@ -41,7 +29,59 @@
             <p style="margin-top: 10px;"><strong>งานอดิเรก</strong></p>
             <p>ดูหนัง ฟังเพลง เล่นกีตาร์ อ่านหนังสือ</p>
         </div>
+        <div class="center">
+            <h2 style="text-align: center;">ความสามารถพิเศษ</h2>
+            <div style="text-align: center;">
+                <input type="text" name="" id="input-skill">
+                <button id="increase-skill">+</button>
+                <button id="decrease-skill">-</button>
+            </div>
+            <ul id="skills"></ul>
+        </div>
+        <div class="right">
+            <h2 style="text-align: center;">ประวัติการทำงาน</h2>
+            <ul>
+                <li>ครูพิเศษสอน - วิทยาลัยเทคนิคบุรีรัมย์</li>
+                <li>IT Support - บริษัท แกรนด์ เอฟเวอเรส จำกัด</li>
+            </ul>
+            <h2 style="text-align: center;">ประวัติการศึกษา</h2>
+            <ul>
+                <li>วิทยาศาสตรบัณฑิต (วิทยาการคอมพิวเตอร์) - มหาวิทยาลัยกรุงเทพ</li>
+                <li>มัธยมศึกษาตอนปลาย - โรงเรียนบุรีรัมย์พิทยาคม</li>
+                <li>มัธยมศึกษาตอนต้น - โรงเรียนบุรีรัมย์พิทยาคม</li>
+                <li>ประถามศึกษา - โรงเรียนอนุบาลบุรีรัมย์</li>
+            </ul>
+        </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#increase-skill').click(function () {
+                let skill = $('#input-skill').val()
+                $('#skills').append($('<li id=' + skill + '>' + skill + '</li>'))
+            })
+            $('#decrease-skill').click(function () {
+                let skill = $('#input-skill').val()
+                let val = '#' + skill
+                $(val).remove()
+            })
+            $('#edit-name').click(function () {
+                $(this).attr('disabled', true)
+                let name = $('#name').text()
+                $('#name').remove()
+                $('#input-name').append($('<h1><input type="text" name="" id="input-update-name" value="' + name + '"></h1>'))
+                $('#input-name').append($('<button id="ss" onclick="updateName()">Update</button>'))
+            })
+        })
+        function updateName() {
+            let name = $('#input-update-name').val()
+            $('#input-update-name').remove()
+            $('#ss').remove()
+            $('#input-name').append($('<h1 id="name">' + name + '</h1>'))
+            $('#edit-name').attr('disabled', false)
+        }
+    </script>
 </body>
 
 </html>
